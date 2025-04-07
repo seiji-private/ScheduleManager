@@ -1,0 +1,223 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fc-daygrid-day-events {
+    height: 2em;
+    overrflow: hidden !important;
+}
+
+.fc-daygrid-day-events > *:nth-child(n+4) {
+    display: none !important; /* 4件目以降を強制的に非表示 */
+}
+
+#calendar {
+    height: 90vh; /* 画面の90%の高さ */
+    width: 95vw;  /* 画面の95%の幅 */
+    max-width: 1200px; /* 最大幅を設定 */
+    background-color: #fff; /* 背景色を設定（見やすくするため） */
+    padding: 10px; /* カレンダーの内側の余白 */
+    border-radius: 10px; /* 角を少し丸める */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 影をつけて見た目を調整 */
+}
+
+.fc-dayGridMonth-view table {
+ border-radius: 20px; /* 外枠を丸くする */
+}
+
+.fc-event:not(:has(.event-item)) {
+    display: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.fc .fc-button-primary {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+}
+
+/* カスタムボタンのホバー時 */
+.fc .fc-customPrev-button:hover,
+.fc .fc-customNext-button:hover {
+  background-color: #D3D3D3;
+  border:transparent;
+}
+
+/* fc-customNext-button がフォーカスされているときのボーダーを無効化 */
+.fc .fc-customPrev-button:focus,
+.fc .fc-customPrev-button:active,
+.fc .fc-customNext-button:focus,
+.fc .fc-customNext-button:active {
+    outline: transparent !important;  /* フォーカス時のアウトラインを消す */
+    border: transparent !important;   /* ボタンの境界線を削除 */
+    box-shadow: none !important;
+}
+
+/* fc-toolbar-chunk のボタンと h2 の高さを揃える */
+.fc-toolbar-chunk {
+    display: flex; /* フレックスボックスにして要素を横並びにする */
+}
+
+/* fc-toolbar-title の h2 にも高さを指定 */
+.fc-toolbar-chunk h2 {
+    display: inline;
+    position: relative;
+    top: 0.5rem;
+}
+
+.fc .fc-daygrid-day-top {
+    justify-content: center;
+}
+
+body,
+#calendar {
+    background-color: #F8FAFD;
+}
+
+.fc-dayGridMonth-view table {
+    background-color: white;
+}
+
+.fc .fc-day-other .fc-daygrid-day-top {
+    opacity: unset;
+}
+
+.fc table {
+    border: none !important;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+    border: none;
+    border-left: 1px solid var(--fc-border-color);
+    border-bottom: 1px solid var(--fc-border-color);
+}
+
+/* 一番左の列（最初の th または td）は左のボーダーを消す */
+.fc-theme-standard th:first-child,
+.fc-theme-standard td:first-child {
+  border-left: none;
+}
+
+/* 一番下の行のセルの下ボーダーを消す */
+.fc-daygrid-body tr:last-child td {
+  border-bottom-color: white;
+}
+
+.fc th {
+    font-weight: normal;
+    border-top: none;
+    border-bottom: none;
+}
+
+td[role="presentation"] {
+  border: none;
+}
+
+.fc-h-event {
+    background-color: #4EB5F5;
+    border: none;
+    border-radius: 12px;
+    padding: 1px;
+    margin-bottom: 1px;
+}
+
+.fc-event .event-item {
+    position: relative;
+    left: 3px;
+}
+
+.fc-h-event:has(.more-events) {
+    background: transparent;
+    cursor: pointer;
+}
+
+.more-events {
+    color: black;
+}
+
+.modal-header {
+    border: none;
+    justify-content: center;
+
+    .btn-close {
+        margin: unset;
+        padding: unset;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .modal-title {
+        text-align: center;
+    }
+}
+
+.popover {
+  background-color: #F0F4F9;
+  border-radius: 20px;
+  max-width: 450px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.popover-body input[type="text"],
+.popover-body input[type="date"],
+.popover-body textarea {
+  background-color: #DDE3EA;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+}
+
+.popover-body input[name="title"] {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.date-range {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+}
+
+.popover-body button[type="submit"] {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+}
+
+.popover-body .btn-close-popover {
+  background-color: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+}
+
+#deleteEventBtn img {
+    width: 30px;
+}
+
+.event-list-item {
+ cursor: pointer;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>カレンダー</title>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script src="/js/calendar.js" defer></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/calendar.css}">
+</head>
+<body>
+<div id="calendar"></div>
+<!-- モーダルの内容を非表示テンプレートとして保持 -->
+<div id="eventFormTemplate" class="d-none">
+    <form class="popover-form">
+        <input type="hidden" id="scheduleId" name="scheduleId">
+        <div class="mb-3">
+            <input type="text" class="form-control" name="title" placeholder="タイトル" required>
+        </div>
+        <div class="date-range mb-3">
+            <input type="date" name="startDate" class="inputDate"/>
+            <span>—</span>
+            <input type="date" name="endDate" class="inputDate"/>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" name="description" rows="5" placeholder="詳細"></textarea>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="assignee" placeholder="担当者">
+        </div>
+        <div class="d-flex justify-content-end gap-1 form-buttons">
+            <button type="button" class="btn d-none" id="deleteEventBtn">
+                <img src="images/trash-box.png" alt="削除">
+            </button>
+            <button type="submit" class="btn btn-sm btn-success">保存</button>
+            <button type="button" class="btn btn-sm btn-secondary btn-close-popover">閉じる</button>
+        </div>
+    </form>
+</div>
+
+<!-- イベント一覧表示用モーダル -->
+<div class="modal fade" id="eventListModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="eventListModalDateArea" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="eventListModalBody">
+                <!-- イベントリストがここに入る -->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
